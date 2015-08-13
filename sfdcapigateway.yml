@@ -47,7 +47,10 @@ zuul:
     accountservice: /accountservice/**
     contactservice: /contactservice/**
     opportunityservice: /opportunityservice/**
-
+  filter:
+    pre.path: pre
+    routing.path: route
+    post.path: post
 ---
 spring:
   profiles: local
