@@ -46,7 +46,7 @@ sfdc:
   apigateway:
     endpoint: http://sfdcapigateway
   service:
-    unavailable: {\"status\":503,\"data\": \"Service currently unavailable.\"}
+    unavailable: {"status":503,"data":"Service currently unavailable."}
 
 ---
 spring:
