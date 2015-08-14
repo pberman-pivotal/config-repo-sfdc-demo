@@ -27,9 +27,6 @@ logging:
 #eureka.client.registryFetchIntervalSeconds = 10
 #eureka.instance.leaseRenewalIntervalInSeconds = 30
 eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${vcap.services.eureka-service.credentials.uri}/eureka/
   instance:
     statusPageUrlPath: ${management.context-path}/health
     healthCheckUrlPath: ${management.context-path}/health
@@ -47,10 +44,6 @@ zuul:
     accountservice: /accountservice/**
     contactservice: /contactservice/**
     opportunityservice: /opportunityservice/**
-  filter:
-    pre.path: pre
-    routing.path: route
-    post.path: post
 ---
 spring:
   profiles: local
