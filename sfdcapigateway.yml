@@ -2,6 +2,21 @@ spring:
   profiles.active: local
 server:
   port: 9011
+security:
+  basic:
+    enabled: false
+
+management:
+  context-path: /manage
+  security:
+    enabled: false
+
+#endpoints.env.id=env
+#endpoints.env.sensitive=true
+#endpoints.env.enabled=true
+endpoints:
+  env:
+    keys-to-sanitize: pwd,uid,password,secret,key,client_id,client_key # suffix or regex
 
 
 #management.context-path=/manage
