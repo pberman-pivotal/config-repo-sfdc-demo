@@ -21,7 +21,7 @@ server:
 
 logging:
   level:
-    io.pivotal.sfdc: DEBUG
+    io.pivotal.sfdc: INFO
 #eureka.client.registerWithEureka = true
 #eureka.client.fetchRegistry = true
 #eureka.client.registryFetchIntervalSeconds = 10
@@ -62,4 +62,4 @@ spring:
   profiles: cloud # For deployment in Cloud Foundry
 eureka:
   instance:
-    nonSecurePort:80
+    nonSecurePort: 80
