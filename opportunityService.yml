@@ -35,6 +35,9 @@ logging:
 #eureka.client.registryFetchIntervalSeconds = 10
 #eureka.instance.leaseRenewalIntervalInSeconds = 30
 eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://localhost:8761}/eureka/
   instance:
     statusPageUrlPath: ${management.context-path}/health
     healthCheckUrlPath: ${management.context-path}/health
@@ -57,4 +60,4 @@ spring:
   profiles: cloud # For deployment in Cloud Foundry
 eureka:
   instance:
-    nonSecurePort:80
+    nonSecurePort: 80
