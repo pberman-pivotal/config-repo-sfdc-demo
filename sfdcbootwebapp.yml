@@ -47,3 +47,16 @@ sfdc:
     endpoint: http://sfdcapigateway
   service:
     unavailable: {\"status\":503,\"data\": \"Service currently unavailable.\"}
+
+---
+spring:
+  profiles: local
+eureka:
+  instance:
+    nonSecurePort: ${server.port}
+---
+spring:
+  profiles: cloud # For deployment in Cloud Foundry
+eureka:
+  instance:
+    nonSecurePort: 80
