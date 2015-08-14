@@ -26,13 +26,6 @@ endpoints:
 logging:
   level:
     io.pivotal.sfdc: INFO
-eureka:
-  instance:
-    statusPageUrlPath: ${management.context-path}/health
-    healthCheckUrlPath: ${management.context-path}/health
-    hostname: ${vcap.application.uris[0]:localhost}
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
 
 #logging.level.io.pivotal.sfdc = INFO
 #eureka.client.serviceUrl.defaultZone = http://${vcap.services.eureka-service.credentials.uri:localhost:8761}/eureka/
@@ -60,9 +53,21 @@ server:
 eureka:
   instance:
     nonSecurePort: ${server.port}
+    statusPageUrlPath: ${management.context-path}/health
+    healthCheckUrlPath: ${management.context-path}/health
+    hostname: ${vcap.application.uris[0]:localhost}
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
 ---
 spring:
   profiles: cloud # For deployment in Cloud Foundry
+server:
+  port: 0
 eureka:
   instance:
-    nonSecurePort:80
+    nonSecurePort: 80
+    statusPageUrlPath: ${management.context-path}/health
+    healthCheckUrlPath: ${management.context-path}/health
+    hostname: ${vcap.application.uris[0]:localhost}
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
