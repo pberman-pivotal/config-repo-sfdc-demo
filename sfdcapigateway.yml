@@ -36,7 +36,7 @@ endpoints:
 
 logging:
   level:
-    io.pivotal.sfdc: INFO
+    io.pivotal.sfdc: DEBUG
 #eureka.client.registerWithEureka = true
 #eureka.client.fetchRegistry = true
 #eureka.client.registryFetchIntervalSeconds = 10
