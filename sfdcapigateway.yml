@@ -59,6 +59,11 @@ zuul:
     accountservice: /accountservice/**
     contactservice: /contactservice/**
     opportunityservice: /opportunityservice/**
+
+sfdc:
+  service:
+    unavailable: '{"status":503,"data":"Service currently unavailable."}'
+
 ---
 spring:
   profiles: local
