@@ -28,7 +28,7 @@ endpoints:
 
 logging:
   level:
-    io.pivotal.sfdc: INFO
+    io.pivotal.sfdc: DEBUG
 #eureka.client.serviceUrl.defaultZone = http://${vcap.services.eureka-service.credentials.uri:localhost:8761}/eureka/
 #eureka.client.registerWithEureka = true
 #eureka.client.fetchRegistry = true
