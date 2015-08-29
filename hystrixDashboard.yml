@@ -33,6 +33,10 @@ eureka:
 #eureka.instance.leaseRenewalIntervalInSeconds = 30
 #eureka.instance.statusPageUrlPath = ${management.context-path}/health
 #eureka.instance.healthCheckUrlPath = ${management.context-path}/health
+turbine:
+  appConfig: accountservice
+  clusterNameExpression: new String('default')
+
 ---
 spring:
   profiles: local
