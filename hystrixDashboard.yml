@@ -48,5 +48,3 @@ spring:
 eureka:
   instance:
     nonSecurePort: 80
-management:
-  port: -1
