@@ -2,6 +2,8 @@ spring:
   profiles.active: local
 server:
   port: 9010
+management:
+  port: 9910
 security:
   basic:
     enabled: false
@@ -46,3 +48,5 @@ spring:
 eureka:
   instance:
     nonSecurePort: 80
+management:
+  port: -1
