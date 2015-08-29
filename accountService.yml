@@ -36,6 +36,10 @@ sfdc:
     accounts: select account.id, account.name, account.type, (select contact.id, contact.lastname from account.contacts) from account
     opp_by_accts: select account.id, account.name, account.type, (select opportunity.id, opportunity.name, opportunity.type, opportunity.amount, opportunity.stagename, opportunity.closedate from account.opportunities) from account
 
+turbine:
+  aggregator:
+    clusterConfig: ACCOUNTS
+
 test:
   message: Hello, Ram!
 ---
