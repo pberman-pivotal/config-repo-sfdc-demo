@@ -29,6 +29,7 @@ logging:
 
 eureka:
   instance:
+    preferIpAddress: true
     statusPageUrlPath: ${management.context-path}/health
     healthCheckUrlPath: ${management.context-path}/health
     hostname: ${vcap.application.uris[0]:localhost}
