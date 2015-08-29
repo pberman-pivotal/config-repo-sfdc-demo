@@ -29,7 +29,7 @@ eureka:
 
 sfdc:
   service:
-    unavailable: {\"status\":503,\"data\": \"Service currently unavailable.\"}
+    unavailable: {"status":503,"data": "Service currently unavailable."}
   authservice:
     endpoint: http://authservice
   query:
