@@ -2,12 +2,12 @@ spring:
   profiles.active: local
 server:
   port: 8989
- 
 security:
   basic:
     enabled: false
 
 management:
+  port: 8990
   context-path: /manage
   security:
     enabled: false
