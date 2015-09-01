@@ -35,6 +35,9 @@ logging:
 #eureka.client.registryFetchIntervalSeconds = 10
 #eureka.instance.leaseRenewalIntervalInSeconds = 30
 eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761}/eureka/
   instance:
     statusPageUrlPath: ${management.context-path}/health
     healthCheckUrlPath: ${management.context-path}/health
