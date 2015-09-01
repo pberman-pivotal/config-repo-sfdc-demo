@@ -1,20 +1,20 @@
 spring:
   profiles.active: local
-server:
-  port: 0
+#server:
+#  port: 0
 security:
   basic:
     enabled: false
 
-management:
-  port: 8990
-  context-path: /manage
-  security:
-    enabled: false
+#management:
+#  port: 8990
+#  context-path: /manage
+#  security:
+#    enabled: false
 
-logging:
-  level:
-    io.pivotal.sfdc: INFO
+#logging:
+#  level:
+#    io.pivotal.sfdc: INFO
 
 eureka:
   client:
@@ -22,8 +22,8 @@ eureka:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761}/eureka/
   instance:
 #    preferIpAddress: true
-    statusPageUrlPath: ${management.context-path}/health
-    healthCheckUrlPath: ${management.context-path}/health
+#    statusPageUrlPath: ${management.context-path}/health
+#    healthCheckUrlPath: ${management.context-path}/health
     hostname: ${vcap.application.uris[0]:localhost}
     registryFetchIntervalSeconds: 5
     leaseRenewalIntervalInSeconds: 5
@@ -38,13 +38,14 @@ eureka:
 #eureka.instance.leaseRenewalIntervalInSeconds = 30
 #eureka.instance.statusPageUrlPath = ${management.context-path}/health
 #eureka.instance.healthCheckUrlPath = ${management.context-path}/health
-
+turbine:
+  appConfig: accountService, contactService, opportunityService, sfdcapigateway
 ---
 spring:
   profiles: local
-eureka:
-  instance:
-    nonSecurePort: ${server.port}
+#eureka:
+#  instance:
+#    nonSecurePort: ${server.port}
 ---
 spring:
   profiles: cloud # For deployment in Cloud Foundry
