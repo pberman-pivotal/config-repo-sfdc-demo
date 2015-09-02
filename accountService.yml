@@ -15,7 +15,7 @@ endpoints:
     keys-to-sanitize: pwd,uid,password,secret,key,client_id,client_key # suffix or regex
 logging:
   level:
-    io.pivotal.sfdc: DEBUG
+    io.pivotal.sfdc: INFO
 eureka:
   client:
     serviceUrl:
