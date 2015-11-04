@@ -52,6 +52,9 @@ spring:
   cloud:
     services:
       registrationMethod: route
-#eureka:
-#  instance:
-#    nonSecurePort: 80
+eureka:
+  instance:
+    securePortEnabled: true
+    nonSecurePortEnabled: false
+    secureVirtualHostName: ${spring.application.name}
+#   nonSecurePort: 80
