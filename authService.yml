@@ -24,7 +24,7 @@ eureka:
 #    preferIpAddress: true
     statusPageUrlPath: ${management.context-path}/health
     healthCheckUrlPath: ${management.context-path}/health
-    hostname: ${vcap.application.uris[0]:localhost}
+    #hostname: ${vcap.application.uris[0]:localhost}
     registryFetchIntervalSeconds: 5
     leaseRenewalIntervalInSeconds: 5
     metadataMap:
@@ -44,10 +44,11 @@ spring:
   profiles: local
 eureka:
   instance:
+    hostname: localhost
     nonSecurePort: ${server.port}
 ---
 spring:
   profiles: cloud # For deployment in Cloud Foundry
-eureka:
-  instance:
-    nonSecurePort: 80
+#eureka:
+#  instance:
+#    nonSecurePort: 80
