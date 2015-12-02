@@ -66,4 +66,7 @@ eureka:
   instance:
     securePortEnabled: true
     nonSecurePortEnabled: false
+    #nonSecurePort: 80
     secureVirtualHostName: ${spring.application.name}
+ribbon:
+  IsSecure: true
