@@ -49,7 +49,7 @@ eureka:
 
 sfdc:
   apigateway:
-    endpoint: http://sfdcapigateway
+    endpoint: https://sfdcapigateway
   service:
     unavailable: '{"status":503,"data":"Service currently unavailable."}'
 
