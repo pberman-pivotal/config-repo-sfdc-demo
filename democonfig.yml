@@ -1,0 +1,4 @@
+server:
+  port: 9000
+welcome:
+  msg: 'welcome to my world!'
