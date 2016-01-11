@@ -1,7 +1,9 @@
+spring:
+  profiles.active: cloud
 server:
   port: 9000
 welcome:
   msg: 'welcome to my world@!'
+---
 spring:
   profiles: cloud # For deployment in Cloud Foundry
-  
