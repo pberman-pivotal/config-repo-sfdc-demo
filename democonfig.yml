@@ -6,7 +6,7 @@ security:
   basic:
     enabled: false
 welcome:
-  msg: 'welcome to my world!'
+  msg: 'welcome to my world@!'
 ---
 spring:
   profiles: cloud # For deployment in Cloud Foundry
