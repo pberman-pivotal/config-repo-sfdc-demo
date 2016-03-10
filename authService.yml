@@ -15,6 +15,13 @@ endpoints:
 logging:
   level:
     io.pivotal.sfdc: INFO
+eureka:
+  instance:
+    preferIpAddress: true
+    statusPageUrlPath: ${management.context-path}/health
+    healthCheckUrlPath: ${management.context-path}/health
+    registryFetchIntervalSeconds: 5
+    leaseRenewalIntervalInSeconds: 5
 
 sfdc:
   client_id: 3MVG9A2kN3Bn17hv8siDyJtftcr88aXG3TpBJIqO8QZac_dpXPEoQy08vgi651aB8y6QdfgCkW0HsDIyQeH1V
@@ -25,6 +32,11 @@ sfdc:
 ---
 spring:
   profiles: local
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761}/eureka/
+
 ---
 spring:
   profiles: cloud # For deployment in Cloud Foundry
