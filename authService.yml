@@ -1,7 +1,7 @@
 spring:
   profiles.active: local
   redis:
-    host: ${vcap.services.p-redis.credentials.host:localhost}
+    host: ${vcap.services.p-redis.credentials.host:redis}
     port: ${vcap.services.p-redis.credentials.port:6379}
     password: ${vcap.services.p-redis.credentials.password:guest}
 server:
@@ -25,11 +25,15 @@ ribbon:
     enabled: true
 eureka:
   instance:
+    hostname: ${vcap.application.uris[0]:authservice}
     preferIpAddress: false
     statusPageUrlPath: ${management.context-path}/health
     healthCheckUrlPath: ${management.context-path}/health
     registryFetchIntervalSeconds: 5
     leaseRenewalIntervalInSeconds: 5
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
 
 sfdc:
   client_id: 3MVG9A2kN3Bn17hv8siDyJtftcr88aXG3TpBJIqO8QZac_dpXPEoQy08vgi651aB8y6QdfgCkW0HsDIyQeH1V
