@@ -42,5 +42,5 @@ eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
-    #serviceUrl:
-      #defaultZone: ${vcap.services.p-service-registry.credentials.uri:http://discovery:8761}/eureka/
+    serviceUrl:
+      defaultZone: ${vcap.services.p-service-registry.credentials.uri:http://discovery:8761}/eureka/
