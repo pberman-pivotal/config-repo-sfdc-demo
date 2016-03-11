@@ -34,6 +34,8 @@ eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${vcap.services.p-service-registry.credentials.uri:http://discovery:8761}/eureka/
 
 sfdc:
   client_id: 3MVG9A2kN3Bn17hv8siDyJtftcr88aXG3TpBJIqO8QZac_dpXPEoQy08vgi651aB8y6QdfgCkW0HsDIyQeH1V
