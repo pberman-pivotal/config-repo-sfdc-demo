@@ -9,18 +9,22 @@ server:
 security:
   basic:
     enabled: false
+
 management:
   context-path: /manage
   security:
     enabled: false
+
 endpoints:
   env:
     keys-to-sanitize: pwd,uid,password,secret,key,client_id,client_key # suffix or regex
+
 logging:
   level:
     com.netflix: INFO
     org.springframework.cloud: DEBUG
     io.pivotal.sfdc: DEBUG
+
 info:
   component: Auth Service
   build:
@@ -33,6 +37,7 @@ info:
 ribbon:
   eureka:
     enabled: true
+
 eureka:
   instance:
     hostname: ${vcap.application.uris[0]:authservice}
@@ -57,10 +62,6 @@ sfdc:
 ---
 spring:
   profiles: local
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
   instance:
     nonSecurePort: ${server.port}
 
