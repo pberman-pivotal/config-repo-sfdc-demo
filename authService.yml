@@ -24,7 +24,7 @@ logging:
 info:
   component: Auth Service
   build:
-    name: ${project.name}
+    name: ${project.name:authService}
     description: ${project.description}
     version: ${project.version}
     group: ${project.groupId}
