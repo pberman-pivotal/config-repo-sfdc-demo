@@ -21,6 +21,14 @@ logging:
     com.netflix: INFO
     org.springframework.cloud: DEBUG
     io.pivotal.sfdc: DEBUG
+info:
+  component: Auth Service
+  build:
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+    group: ${project.groupId}
+    artifact: ${project.artifactId}
 
 ribbon:
   eureka:
