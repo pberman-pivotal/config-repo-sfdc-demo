@@ -34,14 +34,9 @@ info:
     group: ${project.groupId}
     artifact: ${project.artifactId}
 
-ribbon:
-  eureka:
-    enabled: true
-
 eureka:
   instance:
-    hostname: ${vcap.application.uris[0]:authservice}
-    preferIpAddress: false
+    #preferIpAddress: false
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
     registryFetchIntervalSeconds: 5
@@ -63,6 +58,7 @@ spring:
     nonSecurePort: ${server.port}
 eureka:
   instance:
+    hostname: authservice
     nonSecurePort: ${server.port}
   client:
     serviceUrl:
@@ -79,3 +75,5 @@ eureka:
     securePortEnabled: true
     nonSecurePortEnabled: false
     secureVirtualHostName: ${spring.application.name}
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
