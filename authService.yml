@@ -42,16 +42,13 @@ eureka:
   instance:
     hostname: ${vcap.application.uris[0]:authservice}
     preferIpAddress: false
-    statusPageUrlPath: ${management.context-path}/health
+    statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
     registryFetchIntervalSeconds: 5
     leaseRenewalIntervalInSeconds: 5
-    nonSecurePort: ${server.port}
   client:
     registerWithEureka: true
     fetchRegistry: true
-    serviceUrl:
-      defaultZone: ${vcap.services.p-service-registry.credentials.uri:http://discovery:8761}/eureka/
 
 sfdc:
   client_id: 3MVG9A2kN3Bn17hv8siDyJtftcr88aXG3TpBJIqO8QZac_dpXPEoQy08vgi651aB8y6QdfgCkW0HsDIyQeH1V
@@ -64,6 +61,12 @@ spring:
   profiles: local
   instance:
     nonSecurePort: ${server.port}
+eureka:
+  instance:
+    nonSecurePort: ${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
 
 ---
 spring:
