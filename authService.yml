@@ -56,6 +56,8 @@ spring:
   profiles: local
   instance:
     nonSecurePort: ${server.port}
+  redis:
+    create-jedis-connection-factory: true
 eureka:
   instance:
     hostname: authservice
@@ -70,6 +72,8 @@ spring:
   cloud:
     services:
       registrationMethod: route
+  redis:
+    create-jedis-connection-factory: false
 eureka:
   instance:
     securePortEnabled: true
