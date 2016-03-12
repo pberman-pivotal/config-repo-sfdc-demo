@@ -5,7 +5,7 @@ spring:
     port: ${vcap.services.p-redis.credentials.port:6379}
     password: ${vcap.services.p-redis.credentials.password:guest}
 server:
-  port: 9000
+  port: 9001
 security:
   basic:
     enabled: false
