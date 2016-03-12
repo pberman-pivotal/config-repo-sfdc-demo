@@ -60,7 +60,7 @@ spring:
     create-jedis-connection-factory: true
 eureka:
   instance:
-    hostname: contactservice
+    hostname: opportunityservice
     nonSecurePort: ${server.port}
   client:
     serviceUrl:
