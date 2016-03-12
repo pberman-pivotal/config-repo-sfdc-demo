@@ -23,9 +23,8 @@ logging:
 
 info:
   component: SFDC Web Application
-  build:
+  app:
     name: ${project.name:sfdcwebapp}
-    description: ${project.description}
     version: ${project.version:0.0.1-SNAPSHOT}
     group: ${project.groupId:io.pivotal.sfdc}
     artifact: ${project.artifactId:sfdcwebapp}
