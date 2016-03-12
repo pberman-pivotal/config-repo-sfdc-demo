@@ -1,5 +1,9 @@
 spring:
   profiles.active: local
+  redis:
+    host: ${vcap.services.p-redis.credentials.host:redis}
+    port: ${vcap.services.p-redis.credentials.port:6379}
+    password: ${vcap.services.p-redis.credentials.password:guest}
 server:
   port: 9002
 security:
@@ -11,57 +15,69 @@ management:
   security:
     enabled: false
 
-#endpoints.env.id=env
-#endpoints.env.sensitive=true
-#endpoints.env.enabled=true
 endpoints:
   env:
     keys-to-sanitize: pwd,uid,password,secret,key,client_id,client_key # suffix or regex
-#endpoints.health.id=health
-#endpoints.health.sensitive=true
-#endpoints.health.enabled=true
-#endpoints.health.mapping.*= # mapping of health statuses to HttpStatus codes
-#endpoints.health.time-to-live=1000
-#endpoints.info.id=info
-#endpoints.info.sensitive=false
-#endpoints.info.enabled=true
 
 logging:
   level:
-    io.pivotal.sfdc: INFO
-#eureka.client.serviceUrl.defaultZone = http://${vcap.services.eureka-service.credentials.uri:localhost:8761}/eureka/
-#eureka.client.registerWithEureka = true
-#eureka.client.fetchRegistry = true
-#eureka.client.registryFetchIntervalSeconds = 10
-#eureka.instance.leaseRenewalIntervalInSeconds = 30
+    com.netflix: INFO
+    org.springframework.cloud: DEBUG
+    io.pivotal.sfdc: DEBUG
+
+info:
+  component: Contact Service
+  app:
+    name: ${project.name:contactService}
+    description: ${project.description}
+    version: ${project.version}
+    group: ${project.groupId}
+    artifact: ${project.artifactId}
+
 eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761}/eureka/
   instance:
-    statusPageUrlPath: ${management.context-path}/health
+    #preferIpAddress: false
+    statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
-    hostname: ${vcap.application.uris[0]:localhost}
     registryFetchIntervalSeconds: 5
     leaseRenewalIntervalInSeconds: 5
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
 
 sfdc:
+  service:
+    unavailable: '{"status":503,"data": "Service currently unavailable."}'
   authservice:
     endpoint: http://authservice
 
 ---
 spring:
   profiles: local
-eureka:
   instance:
     nonSecurePort: ${server.port}
+  redis:
+    create-jedis-connection-factory: true
+eureka:
+  instance:
+    hostname: contactservice
+    nonSecurePort: ${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
 ---
 spring:
   profiles: cloud # For deployment in Cloud Foundry
+  cloud:
+    services:
+      registrationMethod: route
+  redis:
+    create-jedis-connection-factory: false
 eureka:
   instance:
     securePortEnabled: true
     nonSecurePortEnabled: false
     secureVirtualHostName: ${spring.application.name}
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
