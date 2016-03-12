@@ -41,6 +41,8 @@ eureka:
     fetchRegistry: true
 
 sfdc:
+  apigateway:
+    endpoint: https://sfdcapigateway
   service:
     unavailable: '{"status":503,"data": "Service currently unavailable."}'
 
