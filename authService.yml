@@ -70,6 +70,9 @@ spring:
   cloud:
     services:
       registrationMethod: route
+  autoconfigure:
+    exclude: >
+      org.springframework.data.redis.connection.jedis.JedisConnectionFactory
 eureka:
   instance:
     securePortEnabled: true
