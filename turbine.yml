@@ -54,6 +54,8 @@ turbine:
   appConfig: accountService,contactService,opportunityService,sfdcapigateway
   clusterNameExpression: 'default'
 
+InstanceDiscovery:
+  impl: com.netflix.turbine.discovery.EurekaInstanceDiscovery
 ---
 spring:
   profiles: local
