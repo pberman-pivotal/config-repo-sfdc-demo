@@ -1,6 +1,6 @@
 info:
   component: Hystrix Dashboard
-  build:
+  app:
     name: ${project.name}
     description: ${project.description}
     version: ${project.version}
@@ -44,3 +44,7 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: ${vcap.services.p-service-registry.credentials.uri:http://discovery:8761}/eureka/
+
+turbine:
+  appConfig: accountService,contactService,opportunityService,sfdcapigateway
+  clusterNameExpression: 'default'
