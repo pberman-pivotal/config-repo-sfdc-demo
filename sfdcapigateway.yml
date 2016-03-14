@@ -86,5 +86,14 @@ eureka:
     secureVirtualHostName: ${spring.application.name}
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
 ribbon:
   IsSecure: true
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
