@@ -1,3 +1,12 @@
+spring:
+  profiles.active: local
+  rabbitmq:
+    host: ${vcap.services.p-rabbitmq.credentials.protocols.amqp.host:localhost}
+    port: ${vcap.services.p-rabbitmq.credentials.protocols.amqp.port:5672}
+    username: ${vcap.services.p-rabbitmq.credentials.protocols.amqp.username:guest}
+    password: ${vcap.services.p-rabbitmq.credentials.protocols.amqp.password:guest}
+    virtualHost: ${vcap.services.p-rabbitmq.credentials.protocols.amqp.vhost:/}
+
 info:
   component: Hystrix Dashboard
   app:
