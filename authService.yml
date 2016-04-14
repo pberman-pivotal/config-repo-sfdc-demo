@@ -59,6 +59,7 @@ spring:
 #    create-jedis-connection-factory: true
 eureka:
   instance:
+    preferIpAddress: true
     hostname: authservice
     nonSecurePort: ${server.port}
   client:
