@@ -55,8 +55,6 @@ spring:
   redis:
     host: redis
     port: 6379
-    password: guest
-#    create-jedis-connection-factory: true
 eureka:
   instance:
     preferIpAddress: true

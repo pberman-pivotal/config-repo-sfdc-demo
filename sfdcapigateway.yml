@@ -1,9 +1,5 @@
 spring:
   profiles.active: local
-  redis:
-    host: ${vcap.services.p-redis.credentials.host:redis}
-    port: ${vcap.services.p-redis.credentials.port:6379}
-    password: ${vcap.services.p-redis.credentials.password:guest}
 server:
   port: 9011
 security:
@@ -22,7 +18,7 @@ endpoints:
 logging:
   level:
     com.netflix: INFO
-    org.springframework.cloud: DEBUG
+    org.springframework.cloud: INFO
     io.pivotal.sfdc: DEBUG
 
 info:
@@ -36,7 +32,6 @@ info:
 
 eureka:
   instance:
-    #preferIpAddress: false
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
     registryFetchIntervalSeconds: 5
@@ -62,9 +57,11 @@ spring:
   instance:
     nonSecurePort: ${server.port}
   redis:
-    create-jedis-connection-factory: true
+    host: redis
+    port: 6379
 eureka:
   instance:
+    preferIpAddress: true
     hostname: sfdcapigateway
     nonSecurePort: ${server.port}
   client:
@@ -77,8 +74,6 @@ spring:
   cloud:
     services:
       registrationMethod: route
-  redis:
-    create-jedis-connection-factory: false
 eureka:
   instance:
     securePortEnabled: true
