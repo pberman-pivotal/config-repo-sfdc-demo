@@ -42,10 +42,10 @@ eureka:
     fetchRegistry: true
 
 sfdc:
-  client_id: 3MVG9A2kN3Bn17hv8siDyJtftcr88aXG3TpBJIqO8QZac_dpXPEoQy08vgi651aB8y6QdfgCkW0HsDIyQeH1V
-  client_key: 4631320832041516337
-  uid: jigsheth@sfdc.com
-  pwd: Pivotal1234mpY9LIqi4zImvqRZI8zYP2p3
+  client_id: 3MVG9uudbyLbNPZMlMnISbGthO3wzGGbnTf0tsHT9Mw0TYnXcPB5o3Ylui_NvjDjJqW8u63IHpfyu17V_Yign
+  client_key: 8042128655298341477
+  uid: pberman123@gmail.com
+  pwd: JazzBlues40?JKFPIthlfGH9BAbVPHA7kunl
 
 ---
 spring:
